@@ -2,127 +2,158 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>SportLink – Mobile MVP</title>
-
   <script src="https://cdn.tailwindcss.com"></script>
-
   <style>
     body {
       background: #f5f5f7;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      /* Prevents elastic scrolling on some mobile browsers */
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
     }
-    .app {
-      max-width: 390px;
+    .app-container {
+      max-width: 430px; /* iPhone 15 Pro Max width */
       margin: 0 auto;
-      min-height: 100vh;
+      height: 100vh;
       background: white;
       display: flex;
       flex-direction: column;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    main {
+      flex: 1;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 80px; /* Space for Nav */
+    }
+    .nav-btn {
+      transition: color 0.2s;
+      color: #8e8e93;
     }
     .nav-btn.active {
       color: #4f46e5;
       font-weight: 700;
     }
+    /* Simple hide utility */
+    .hidden { display: none; }
   </style>
 </head>
-
 <body>
 
-<div class="app">
+<div class="app-container">
 
-  <!-- HEADER -->
-  <header class="p-4 border-b flex justify-between items-center">
-    <h1 class="text-xl font-bold">SportLink</h1>
-    <span class="text-green-600 text-sm font-semibold">● Online</span>
+  <header class="p-4 border-b flex justify-between items-center bg-white sticky top-0 z-10">
+    <h1 class="text-xl font-extrabold tracking-tight">SportLink</h1>
+    <div class="flex items-center gap-2">
+        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+        <span class="text-gray-600 text-xs font-medium uppercase tracking-widest">Live</span>
+    </div>
   </header>
 
-  <!-- MAIN CONTENT -->
-  <main class="flex-1 overflow-y-auto p-4 space-y-6">
+  <main class="p-4 space-y-6">
 
-    <!-- FEED -->
-    <section id="feed">
-      <div class="bg-white rounded-xl shadow p-4">
-        <h2 class="font-bold">🏃 5K Fun Run</h2>
-        <p class="text-sm text-gray-500">Tomorrow • 7:30 PM • Riverside Trail</p>
-        <p class="text-sm mt-2">45 people attending</p>
-        <button class="mt-3 w-full bg-indigo-600 text-white py-2 rounded-lg font-semibold">
-          Join Event
-        </button>
+    <section id="feed-view">
+      <div class="bg-white border rounded-2xl shadow-sm overflow-hidden">
+        <div class="h-32 bg-indigo-100 flex items-center justify-center text-4xl">🏃‍♂️</div>
+        <div class="p-4">
+            <h2 class="font-bold text-lg text-gray-800">5K Fun Run</h2>
+            <p class="text-sm text-gray-500 font-medium">Tomorrow • 7:30 PM • Riverside Trail</p>
+            <div class="flex items-center mt-3 gap-2">
+                <div class="flex -space-x-2">
+                    <div class="w-6 h-6 rounded-full bg-gray-300 border-2 border-white"></div>
+                    <div class="w-6 h-6 rounded-full bg-indigo-400 border-2 border-white"></div>
+                </div>
+                <p class="text-xs text-gray-500">45 people attending</p>
+            </div>
+            <button onclick="joinEvent(this)" class="mt-4 w-full bg-indigo-600 active:bg-indigo-700 text-white py-3 rounded-xl font-bold transition-all">
+              Join Event
+            </button>
+        </div>
       </div>
     </section>
 
-    <!-- ACCOUNT -->
-    <section id="account" class="hidden">
-      <div class="text-center">
-        <div class="w-20 h-20 mx-auto rounded-full bg-indigo-600 text-white flex items-center justify-center text-3xl font-bold">
+    <section id="account-view" class="hidden">
+      <div class="text-center pt-4">
+        <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-indigo-600 to-purple-500 text-white flex items-center justify-center text-4xl font-bold shadow-lg">
           J
         </div>
-        <h2 class="text-xl font-bold mt-3">Jane Doe</h2>
+        <h2 class="text-2xl font-bold mt-4">Jane Doe</h2>
         <p class="text-gray-500">@JaneRunsFast</p>
       </div>
 
-      <div class="grid grid-cols-2 gap-4 mt-6">
-        <div class="bg-gray-100 rounded-xl p-4 text-center">
-          <p class="text-sm text-gray-500">Sessions</p>
-          <p class="text-xl font-bold">12</p>
+      <div class="grid grid-cols-2 gap-4 mt-8">
+        <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100">
+          <p class="text-xs text-gray-400 uppercase font-bold tracking-tighter">Sessions</p>
+          <p class="text-2xl font-black text-indigo-600">12</p>
         </div>
-        <div class="bg-gray-100 rounded-xl p-4 text-center">
-          <p class="text-sm text-gray-500">Reliability</p>
-          <p class="text-xl font-bold">92%</p>
+        <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100">
+          <p class="text-xs text-gray-400 uppercase font-bold tracking-tighter">Reliability</p>
+          <p class="text-2xl font-black text-green-500">92%</p>
         </div>
       </div>
     </section>
 
-    <!-- SEARCH -->
-    <section id="search" class="hidden">
-      <p class="text-gray-600 text-center">
-        🔍 Find workout partners and events
-      </p>
+    <section id="search-view" class="hidden">
+      <div class="relative">
+        <input type="text" placeholder="Search sports, events, or people..." 
+               class="w-full bg-gray-100 rounded-xl py-3 px-4 outline-none focus:ring-2 focus:ring-indigo-500 transition-all" />
+      </div>
+      <div class="mt-6 space-y-4">
+          <p class="text-sm font-bold text-gray-400 uppercase">Suggested Sports</p>
+          <div class="flex flex-wrap gap-2">
+              <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium">Tennis</span>
+              <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium">Yoga</span>
+              <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium">Cycling</span>
+          </div>
+      </div>
     </section>
 
-    <!-- SAFETY -->
-    <section id="safety" class="hidden">
-
-      <!-- INACTIVE -->
-      <div id="safety-start" class="text-center border rounded-2xl p-6">
-        <h2 class="font-bold text-lg">Safety Check-In</h2>
-        <p class="text-sm text-gray-500 mt-2">
-          Activate tracking for solo workouts
+    <section id="safety-view" class="hidden">
+      <div id="safety-start" class="text-center border-2 border-dashed border-gray-200 rounded-3xl p-8 bg-gray-50">
+        <div class="text-4xl mb-4">🛡️</div>
+        <h2 class="font-bold text-xl">Safety Check-In</h2>
+        <p class="text-sm text-gray-500 mt-2 px-4">
+          Going for a solo run? Activate tracking so your emergency contacts are notified if you stop moving.
         </p>
-        <button id="startSafety"
-          class="mt-5 w-full bg-green-600 text-white py-3 rounded-xl font-bold">
-          Activate Safety
+        <button id="startSafety" class="mt-8 w-full bg-green-600 active:scale-95 text-white py-4 rounded-2xl font-bold shadow-lg transition-transform">
+          Start Live Tracking
         </button>
       </div>
 
-      <!-- ACTIVE -->
-      <div id="safety-active" class="hidden text-center border-4 border-green-500 rounded-2xl p-6 bg-green-50">
-        <h2 class="font-bold text-green-700">Safety Tracking Active</h2>
-
-        <p id="timer" class="text-3xl font-mono my-4">00:00:00</p>
-
-        <button id="sos"
-          class="w-full bg-red-600 text-white py-3 rounded-xl font-bold mb-3">
-          🚨 SOS
-        </button>
-
-        <button id="endSafety"
-          class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">
-          End Session
-        </button>
+      <div id="safety-active" class="hidden text-center border-2 border-green-500 rounded-3xl p-8 bg-green-50 shadow-inner">
+        <div class="inline-block px-3 py-1 bg-green-200 text-green-800 text-xs font-bold rounded-full mb-4 uppercase tracking-widest">Live Now</div>
+        <h2 class="font-black text-green-700 text-lg">Tracking Active</h2>
+        <p id="timer" class="text-5xl font-mono font-bold my-6 tracking-tighter text-gray-800">00:00:00</p>
+        <div class="space-y-3">
+            <button id="sos" class="w-full bg-red-600 text-white py-4 rounded-2xl font-bold shadow-lg active:bg-red-700">🚨 SOS</button>
+            <button id="endSafety" class="w-full text-indigo-600 font-bold py-2">End Session</button>
+        </div>
       </div>
-
     </section>
 
   </main>
 
-  <!-- NAVIGATION -->
-  <nav class="border-t flex justify-around py-2 text-sm">
-    <button class="nav-btn active" onclick="switchView('feed')">Feed</button>
-    <button class="nav-btn" onclick="switchView('account')">Account</button>
-    <button class="nav-btn" onclick="switchView('search')">Search</button>
-    <button class="nav-btn" onclick="switchView('safety')">Safety</button>
+  <nav class="border-t bg-white flex justify-around items-center py-3 fixed bottom-0 left-0 right-0 max-w-[430px] mx-auto z-20">
+    <button class="nav-btn active flex flex-col items-center gap-1" onclick="switchView('feed')">
+        <span class="text-xl">🏠</span>
+        <span class="text-[10px]">Feed</span>
+    </button>
+    <button class="nav-btn flex flex-col items-center gap-1" onclick="switchView('search')">
+        <span class="text-xl">🔍</span>
+        <span class="text-[10px]">Search</span>
+    </button>
+    <button class="nav-btn flex flex-col items-center gap-1" onclick="switchView('safety')">
+        <span class="text-xl">🛡️</span>
+        <span class="text-[10px]">Safety</span>
+    </button>
+    <button class="nav-btn flex flex-col items-center gap-1" onclick="switchView('account')">
+        <span class="text-xl">👤</span>
+        <span class="text-[10px]">Profile</span>
+    </button>
   </nav>
 
 </div>
@@ -131,21 +162,42 @@
   let seconds = 0;
   let timerInterval;
 
-  function switchView(view) {
-    ['feed','account','search','safety'].forEach(id => {
-      document.getElementById(id).classList.add('hidden');
-    });
-    document.getElementById(view).classList.remove('hidden');
+  // View Switcher
+  function switchView(viewName) {
+    // 1. Hide all views
+    const views = ['feed-view', 'account-view', 'search-view', 'safety-view'];
+    views.forEach(id => document.getElementById(id).classList.add('hidden'));
+    
+    // 2. Show selected view
+    document.getElementById(viewName + '-view').classList.remove('hidden');
 
-    document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
+    // 3. Update Nav UI
+    const navButtons = document.querySelectorAll('.nav-btn');
+    navButtons.forEach(btn => {
+      btn.classList.remove('active');
+      // Simple logic to match button text to view name
+      if(btn.innerText.toLowerCase().includes(viewName.toLowerCase()) || 
+         (viewName === 'feed' && btn.innerText.includes('Home'))) {
+        btn.classList.add('active');
+      }
+    });
   }
 
+  // Event Action
+  function joinEvent(btn) {
+    btn.innerHTML = "✓ Joined";
+    btn.classList.remove('bg-indigo-600');
+    btn.classList.add('bg-green-500');
+    btn.disabled = true;
+  }
+
+  // Safety Timer Logic
   document.getElementById('startSafety').onclick = () => {
     document.getElementById('safety-start').classList.add('hidden');
     document.getElementById('safety-active').classList.remove('hidden');
     seconds = 0;
-
+    
+    clearInterval(timerInterval); // Clear any existing
     timerInterval = setInterval(() => {
       seconds++;
       const h = String(Math.floor(seconds / 3600)).padStart(2,'0');
@@ -156,13 +208,15 @@
   };
 
   document.getElementById('endSafety').onclick = () => {
-    clearInterval(timerInterval);
-    document.getElementById('safety-active').classList.add('hidden');
-    document.getElementById('safety-start').classList.remove('hidden');
+    if(confirm("Are you sure you want to end tracking?")) {
+        clearInterval(timerInterval);
+        document.getElementById('safety-active').classList.add('hidden');
+        document.getElementById('safety-start').classList.remove('hidden');
+    }
   };
 
   document.getElementById('sos').onclick = () => {
-    alert("🚨 Emergency alert sent to your trusted contact.");
+    alert("🚨 EMERGENCY: Your location has been sent to your emergency contacts and local authorities.");
   };
 </script>
 
