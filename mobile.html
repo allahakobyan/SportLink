@@ -2,30 +2,153 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SportLink – Mobile MVP</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
-    .active { color:#4f46e5; border-top:2px solid #4f46e5; }
+    body { background-color: #f4f4f7; }
+    .nav-button.active {
+      color: #4f46e5;
+      border-top: 2px solid #4f46e5;
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
   </style>
 </head>
 
-<body class="bg-gray-100 flex justify-center">
+<body class="h-screen flex flex-col bg-white">
 
-<!-- iPhone Frame -->
-<div class="w-[390px] h-screen bg-white flex flex-col overflow-hidden shadow-xl">
-
-<!-- Header -->
+<!-- HEADER -->
 <header class="p-4 border-b flex justify-between items-center">
   <h1 class="font-extrabold text-lg">SportLink</h1>
-  <span class="text-xs text-green-600 font-bold">● Online</span>
+  <span class="text-green-600 text-sm font-semibold">● Online</span>
 </header>
 
-<!-- Main -->
-<main class="flex-1 overflow-y-auto bg-gray-50">
+<!-- MAIN CONTENT -->
+<main class="flex-1 overflow-y-auto no-scrollbar pb-24">
 
-<!-- FEED -->
-<section id="feed" class="p-4 space-y-4">
-  <div class="bg-white rounded-xl shadow">
+  <!-- FEED -->
+  <section id="events-view" class="view p-4 space-y-4">
+    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=1000&auto=format&fit=crop"
+           class="w-full h-56 object-cover blur-sm">
+      <div class="p-4 relative -mt-16 bg-white rounded-t-2xl">
+        <h3 class="font-bold">5K Fun Run</h3>
+        <p class="text-sm text-gray-500">Riverfront Trail · Tomorrow 7:30 PM</p>
+        <p class="text-sm mt-2">45 athletes attending</p>
+        <button class="mt-3 w-full bg-indigo-600 text-white py-2 rounded-xl font-bold">
+          Join Event
+        </button>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1000&auto=format&fit=crop"
+           class="w-full h-56 object-cover blur-sm">
+      <div class="p-4 relative -mt-16 bg-white rounded-t-2xl">
+        <h3 class="font-bold">Sunrise Yoga</h3>
+        <p class="text-sm text-gray-500">Central Park · Saturday 8:00 AM</p>
+        <p class="text-sm mt-2">20 participants</p>
+        <button class="mt-3 w-full bg-indigo-600 text-white py-2 rounded-xl font-bold">
+          Join Event
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section id="partners-view" class="view hidden p-4 space-y-3">
+    <h2 class="font-bold text-lg">Find Partners</h2>
+
+    <div class="bg-white p-4 rounded-xl shadow-sm flex justify-between items-center">
+      <div>
+        <p class="font-bold">Alex V.</p>
+        <p class="text-xs text-gray-500">Runner · Rating 4.8</p>
+      </div>
+      <button class="text-indigo-600 font-bold">Connect</button>
+    </div>
+
+    <div class="bg-white p-4 rounded-xl shadow-sm flex justify-between items-center">
+      <div>
+        <p class="font-bold">Sam K.</p>
+        <p class="text-xs text-gray-500">Yoga · Rating 4.9</p>
+      </div>
+      <button class="text-indigo-600 font-bold">Connect</button>
+    </div>
+  </section>
+
+  <!-- SAFETY -->
+  <section id="safety-view" class="view hidden p-4">
+    <div class="bg-white rounded-3xl p-6 shadow-sm text-center">
+      <h3 class="font-bold text-lg">Solo Safety Check-In</h3>
+      <p class="text-sm text-gray-500 mt-2">
+        Trusted contact will receive live updates.
+      </p>
+      <button class="mt-6 w-full bg-green-600 text-white py-3 rounded-2xl font-bold">
+        Activate Safety Mode
+      </button>
+    </div>
+  </section>
+
+  <!-- ACCOUNT -->
+  <section id="account-view" class="view hidden p-4">
+    <div class="bg-gradient-to-br from-gray-800 to-black text-white p-6 rounded-3xl text-center">
+      <div class="w-20 h-20 mx-auto bg-indigo-500 rounded-full flex items-center justify-center text-3xl font-bold">
+        J
+      </div>
+      <h3 class="mt-3 font-extrabold text-xl">Jane Doe</h3>
+      <p class="text-sm text-indigo-300">@JaneRunsFast</p>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 mt-6">
+      <div class="bg-white p-4 rounded-xl shadow-sm text-center">
+        <p class="text-xs text-gray-500">Activities</p>
+        <p class="text-xl font-bold">12</p>
+      </div>
+      <div class="bg-white p-4 rounded-xl shadow-sm text-center">
+        <p class="text-xs text-gray-500">Distance</p>
+        <p class="text-xl font-bold">214 km</p>
+      </div>
+    </div>
+
+    <div class="mt-6 bg-white p-4 rounded-xl shadow-sm">
+      <p class="font-bold">Account Settings</p>
+      <ul class="text-sm text-gray-600 mt-2 space-y-1">
+        <li>• Edit Profile</li>
+        <li>• Privacy & Safety</li>
+        <li>• Notifications</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<!-- NAVIGATION -->
+<nav class="fixed bottom-0 left-0 w-full bg-white border-t flex justify-around py-2">
+  <button class="nav-button active" onclick="switchView('events')">Feed</button>
+  <button class="nav-button" onclick="switchView('partners')">Partners</button>
+  <button class="nav-button" onclick="switchView('safety')">Safety</button>
+  <button class="nav-button" onclick="switchView('account')">Account</button>
+</nav>
+
+<!-- SCRIPT -->
+<script>
+  function switchView(view) {
+    document.querySelectorAll('.view').forEach(v => v.classList.add('hidden'));
+    document.getElementById(view + '-view').classList.remove('hidden');
+
+    document.querySelectorAll('.nav-button').forEach(btn =>
+      btn.classList.remove('active')
+    );
+    event.target.classList.add('active');
+  }
+
+  // AUTO-LOAD FEED ON PAGE LOAD (FIX)
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("events-view").classList.remove("hidden");
+  });
+</script>
+
+</body>
+</html>
