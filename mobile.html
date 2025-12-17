@@ -126,27 +126,33 @@
 
 <!-- NAVIGATION -->
 <nav class="fixed bottom-0 left-0 w-full bg-white border-t flex justify-around py-2">
-  <button class="nav-button active" onclick="switchView('events')">Feed</button>
-  <button class="nav-button" onclick="switchView('partners')">Partners</button>
-  <button class="nav-button" onclick="switchView('safety')">Safety</button>
-  <button class="nav-button" onclick="switchView('account')">Account</button>
+<button class="nav-button active" onclick="switchView('events', this)">Feed</button>
+<button class="nav-button" onclick="switchView('partners', this)">Partners</button>
+<button class="nav-button" onclick="switchView('safety', this)">Safety</button>
+<button class="nav-button" onclick="switchView('account', this)">Account</button>
+
 </nav>
 
 <!-- SCRIPT -->
 <script>
-  function switchView(view) {
-    document.querySelectorAll('.view').forEach(v => v.classList.add('hidden'));
+  function switchView(view, button = null) {
+    document.querySelectorAll('.view').forEach(v =>
+      v.classList.add('hidden')
+    );
     document.getElementById(view + '-view').classList.remove('hidden');
 
     document.querySelectorAll('.nav-button').forEach(btn =>
       btn.classList.remove('active')
     );
-    event.target.classList.add('active');
+
+    if (button) {
+      button.classList.add('active');
+    }
   }
 
-  // AUTO-LOAD FEED ON PAGE LOAD (FIX)
+  // Load Feed by default (NO event here)
   document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("events-view").classList.remove("hidden");
+    switchView('events');
   });
 </script>
 
