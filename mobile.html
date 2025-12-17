@@ -8,152 +8,162 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    body { background-color: #f4f4f7; }
-    .nav-button.active {
-      color: #4f46e5;
-      border-top: 2px solid #4f46e5;
+    body {
+      background: #f5f5f7;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont;
     }
-    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .app {
+      max-width: 390px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: white;
+      display: flex;
+      flex-direction: column;
+    }
+    .nav-btn.active {
+      color: #4f46e5;
+      font-weight: 700;
+    }
   </style>
 </head>
 
-<body class="h-screen flex flex-col bg-white">
+<body>
 
-<!-- HEADER -->
-<header class="p-4 border-b flex justify-between items-center">
-  <h1 class="font-extrabold text-lg">SportLink</h1>
-  <span class="text-green-600 text-sm font-semibold">● Online</span>
-</header>
+<div class="app">
 
-<!-- MAIN CONTENT -->
-<main class="flex-1 overflow-y-auto no-scrollbar pb-24">
+  <!-- HEADER -->
+  <header class="p-4 border-b flex justify-between items-center">
+    <h1 class="text-xl font-bold">SportLink</h1>
+    <span class="text-green-600 text-sm font-semibold">● Online</span>
+  </header>
 
-  <!-- FEED -->
-  <section id="events-view" class="view p-4 space-y-4">
-    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=1000&auto=format&fit=crop"
-           class="w-full h-56 object-cover blur-sm">
-      <div class="p-4 relative -mt-16 bg-white rounded-t-2xl">
-        <h3 class="font-bold">5K Fun Run</h3>
-        <p class="text-sm text-gray-500">Riverfront Trail · Tomorrow 7:30 PM</p>
-        <p class="text-sm mt-2">45 athletes attending</p>
-        <button class="mt-3 w-full bg-indigo-600 text-white py-2 rounded-xl font-bold">
+  <!-- MAIN CONTENT -->
+  <main class="flex-1 overflow-y-auto p-4 space-y-6">
+
+    <!-- FEED -->
+    <section id="feed">
+      <div class="bg-white rounded-xl shadow p-4">
+        <h2 class="font-bold">🏃 5K Fun Run</h2>
+        <p class="text-sm text-gray-500">Tomorrow • 7:30 PM • Riverside Trail</p>
+        <p class="text-sm mt-2">45 people attending</p>
+        <button class="mt-3 w-full bg-indigo-600 text-white py-2 rounded-lg font-semibold">
           Join Event
         </button>
       </div>
-    </div>
+    </section>
 
-    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1000&auto=format&fit=crop"
-           class="w-full h-56 object-cover blur-sm">
-      <div class="p-4 relative -mt-16 bg-white rounded-t-2xl">
-        <h3 class="font-bold">Sunrise Yoga</h3>
-        <p class="text-sm text-gray-500">Central Park · Saturday 8:00 AM</p>
-        <p class="text-sm mt-2">20 participants</p>
-        <button class="mt-3 w-full bg-indigo-600 text-white py-2 rounded-xl font-bold">
-          Join Event
-        </button>
+    <!-- ACCOUNT -->
+    <section id="account" class="hidden">
+      <div class="text-center">
+        <div class="w-20 h-20 mx-auto rounded-full bg-indigo-600 text-white flex items-center justify-center text-3xl font-bold">
+          J
+        </div>
+        <h2 class="text-xl font-bold mt-3">Jane Doe</h2>
+        <p class="text-gray-500">@JaneRunsFast</p>
       </div>
-    </div>
-  </section>
 
-  <!-- PARTNERS -->
-  <section id="partners-view" class="view hidden p-4 space-y-3">
-    <h2 class="font-bold text-lg">Find Partners</h2>
-
-    <div class="bg-white p-4 rounded-xl shadow-sm flex justify-between items-center">
-      <div>
-        <p class="font-bold">Alex V.</p>
-        <p class="text-xs text-gray-500">Runner · Rating 4.8</p>
+      <div class="grid grid-cols-2 gap-4 mt-6">
+        <div class="bg-gray-100 rounded-xl p-4 text-center">
+          <p class="text-sm text-gray-500">Sessions</p>
+          <p class="text-xl font-bold">12</p>
+        </div>
+        <div class="bg-gray-100 rounded-xl p-4 text-center">
+          <p class="text-sm text-gray-500">Reliability</p>
+          <p class="text-xl font-bold">92%</p>
+        </div>
       </div>
-      <button class="text-indigo-600 font-bold">Connect</button>
-    </div>
+    </section>
 
-    <div class="bg-white p-4 rounded-xl shadow-sm flex justify-between items-center">
-      <div>
-        <p class="font-bold">Sam K.</p>
-        <p class="text-xs text-gray-500">Yoga · Rating 4.9</p>
-      </div>
-      <button class="text-indigo-600 font-bold">Connect</button>
-    </div>
-  </section>
-
-  <!-- SAFETY -->
-  <section id="safety-view" class="view hidden p-4">
-    <div class="bg-white rounded-3xl p-6 shadow-sm text-center">
-      <h3 class="font-bold text-lg">Solo Safety Check-In</h3>
-      <p class="text-sm text-gray-500 mt-2">
-        Trusted contact will receive live updates.
+    <!-- SEARCH -->
+    <section id="search" class="hidden">
+      <p class="text-gray-600 text-center">
+        🔍 Find workout partners and events
       </p>
-      <button class="mt-6 w-full bg-green-600 text-white py-3 rounded-2xl font-bold">
-        Activate Safety Mode
-      </button>
-    </div>
-  </section>
+    </section>
 
-  <!-- ACCOUNT -->
-  <section id="account-view" class="view hidden p-4">
-    <div class="bg-gradient-to-br from-gray-800 to-black text-white p-6 rounded-3xl text-center">
-      <div class="w-20 h-20 mx-auto bg-indigo-500 rounded-full flex items-center justify-center text-3xl font-bold">
-        J
+    <!-- SAFETY -->
+    <section id="safety" class="hidden">
+
+      <!-- INACTIVE -->
+      <div id="safety-start" class="text-center border rounded-2xl p-6">
+        <h2 class="font-bold text-lg">Safety Check-In</h2>
+        <p class="text-sm text-gray-500 mt-2">
+          Activate tracking for solo workouts
+        </p>
+        <button id="startSafety"
+          class="mt-5 w-full bg-green-600 text-white py-3 rounded-xl font-bold">
+          Activate Safety
+        </button>
       </div>
-      <h3 class="mt-3 font-extrabold text-xl">Jane Doe</h3>
-      <p class="text-sm text-indigo-300">@JaneRunsFast</p>
-    </div>
 
-    <div class="grid grid-cols-2 gap-4 mt-6">
-      <div class="bg-white p-4 rounded-xl shadow-sm text-center">
-        <p class="text-xs text-gray-500">Activities</p>
-        <p class="text-xl font-bold">12</p>
+      <!-- ACTIVE -->
+      <div id="safety-active" class="hidden text-center border-4 border-green-500 rounded-2xl p-6 bg-green-50">
+        <h2 class="font-bold text-green-700">Safety Tracking Active</h2>
+
+        <p id="timer" class="text-3xl font-mono my-4">00:00:00</p>
+
+        <button id="sos"
+          class="w-full bg-red-600 text-white py-3 rounded-xl font-bold mb-3">
+          🚨 SOS
+        </button>
+
+        <button id="endSafety"
+          class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">
+          End Session
+        </button>
       </div>
-      <div class="bg-white p-4 rounded-xl shadow-sm text-center">
-        <p class="text-xs text-gray-500">Distance</p>
-        <p class="text-xl font-bold">214 km</p>
-      </div>
-    </div>
 
-    <div class="mt-6 bg-white p-4 rounded-xl shadow-sm">
-      <p class="font-bold">Account Settings</p>
-      <ul class="text-sm text-gray-600 mt-2 space-y-1">
-        <li>• Edit Profile</li>
-        <li>• Privacy & Safety</li>
-        <li>• Notifications</li>
-      </ul>
-    </div>
-  </section>
+    </section>
 
-</main>
+  </main>
 
-<!-- NAVIGATION -->
-<nav class="fixed bottom-0 left-0 w-full bg-white border-t flex justify-around py-2">
-<button class="nav-button active" onclick="switchView('events', this)">Feed</button>
-<button class="nav-button" onclick="switchView('partners', this)">Partners</button>
-<button class="nav-button" onclick="switchView('safety', this)">Safety</button>
-<button class="nav-button" onclick="switchView('account', this)">Account</button>
+  <!-- NAVIGATION -->
+  <nav class="border-t flex justify-around py-2 text-sm">
+    <button class="nav-btn active" onclick="switchView('feed')">Feed</button>
+    <button class="nav-btn" onclick="switchView('account')">Account</button>
+    <button class="nav-btn" onclick="switchView('search')">Search</button>
+    <button class="nav-btn" onclick="switchView('safety')">Safety</button>
+  </nav>
 
-</nav>
+</div>
 
-<!-- SCRIPT -->
 <script>
-  function switchView(view, button = null) {
-    document.querySelectorAll('.view').forEach(v =>
-      v.classList.add('hidden')
-    );
-    document.getElementById(view + '-view').classList.remove('hidden');
+  let seconds = 0;
+  let timerInterval;
 
-    document.querySelectorAll('.nav-button').forEach(btn =>
-      btn.classList.remove('active')
-    );
+  function switchView(view) {
+    ['feed','account','search','safety'].forEach(id => {
+      document.getElementById(id).classList.add('hidden');
+    });
+    document.getElementById(view).classList.remove('hidden');
 
-    if (button) {
-      button.classList.add('active');
-    }
+    document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
   }
 
-  // Load Feed by default (NO event here)
-  document.addEventListener("DOMContentLoaded", () => {
-    switchView('events');
-  });
+  document.getElementById('startSafety').onclick = () => {
+    document.getElementById('safety-start').classList.add('hidden');
+    document.getElementById('safety-active').classList.remove('hidden');
+    seconds = 0;
+
+    timerInterval = setInterval(() => {
+      seconds++;
+      const h = String(Math.floor(seconds / 3600)).padStart(2,'0');
+      const m = String(Math.floor((seconds % 3600)/60)).padStart(2,'0');
+      const s = String(seconds % 60).padStart(2,'0');
+      document.getElementById('timer').textContent = `${h}:${m}:${s}`;
+    }, 1000);
+  };
+
+  document.getElementById('endSafety').onclick = () => {
+    clearInterval(timerInterval);
+    document.getElementById('safety-active').classList.add('hidden');
+    document.getElementById('safety-start').classList.remove('hidden');
+  };
+
+  document.getElementById('sos').onclick = () => {
+    alert("🚨 Emergency alert sent to your trusted contact.");
+  };
 </script>
 
 </body>
