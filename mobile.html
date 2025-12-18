@@ -1,300 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>SportLink MVP</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<title>SportLink Mobile MVP</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{
+  margin:0;height:100%;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  background:#f2f2f7;
 }
-
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: #f2f2f7;
-    overflow: hidden;
-}
-
-/* APP CONTAINER */
-.app-container {
-    max-width: 430px;
-    margin: 0 auto;
-    height: 100%;
-    background: white;
-    display: flex;
-    flex-direction: column;
+.app{
+  max-width:430px;
+  margin:0 auto;
+  height:100%;
+  background:#fff;
+  display:flex;
+  flex-direction:column;
 }
 
 /* HEADER */
-header {
-    padding: 16px;
-    border-bottom: 1px solid #e5e5e5;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+header{
+  height:56px;
+  border-bottom:1px solid #e5e7eb;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
 }
-
-.logo {
-    font-size: 20px;
-    font-weight: 800;
-    color: #4f46e5;
-}
-
-.status {
-    font-size: 10px;
-    font-weight: bold;
-    color: #34c759;
+.status-bar{
+  background:#eef2ff;
+  padding:6px 12px;
+  font-size:12px;
+  color:#16a34a;
+  border-bottom:1px solid #c7d2fe;
 }
 
 /* MAIN */
-main {
-    flex: 1;
-    overflow-y: auto;
-    padding: 16px;
-    padding-bottom: 110px;
+main{
+  flex:1;
+  overflow-y:auto;
+  padding:16px;
+  padding-bottom:90px;
 }
+.view{display:none}
+.view.active{display:block}
 
-.view {
-    display: none;
+/* CARD */
+.card{
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+  margin-bottom:16px;
+  overflow:hidden;
 }
-
-.view.active {
-    display: block;
+.card-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px;
 }
-
-/* CARDS */
-.card {
-    background: white;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 16px;
-    border: 1px solid #eee;
+.avatar{
+  width:36px;height:36px;
+  border-radius:50%;
+  background:#4f46e5;
+  color:#fff;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+.card-body{
+  padding:12px;
+  font-size:14px;
 }
 
 /* BUTTONS */
-.btn {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
+.btn{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  font-weight:700;
+  font-size:16px;
+}
+.btn-green{background:#16a34a;color:#fff}
+.btn-red{background:#ef4444;color:#fff}
+.btn-blue{background:#4f46e5;color:#fff}
+
+/* SAFETY */
+.safety-box{
+  border:3px solid #22c55e;
+  border-radius:24px;
+  padding:24px;
+  text-align:center;
+  background:#f0fdf4;
+}
+.timer{
+  font-size:36px;
+  font-family:monospace;
+  margin:16px 0;
 }
 
-.btn-primary {
-    background: #4f46e5;
-    color: white;
+/* ACCOUNT */
+.profile{
+  text-align:center;
+}
+.profile .avatar{
+  width:80px;height:80px;
+  margin:0 auto 10px;
+  font-size:36px;
+}
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:16px;
+}
+.stat{
+  background:#f9fafb;
+  padding:14px;
+  border-radius:14px;
+  font-weight:700;
 }
 
-.btn-danger {
-    background: #ff3b30;
-    color: white;
+/* SEARCH */
+.search input{
+  width:100%;
+  padding:14px;
+  border-radius:14px;
+  border:1px solid #d1d5db;
 }
 
-.btn:active {
-    transform: scale(0.97);
+/* NAV */
+nav{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  max-width:430px;
+  background:#fff;
+  border-top:1px solid #e5e7eb;
+  display:flex;
+  justify-content:space-around;
+  padding:10px 0;
 }
-
-/* TIMER */
-.timer {
-    font-size: 42px;
-    font-family: monospace;
-    font-weight: bold;
-    margin: 20px 0;
+.nav-btn{
+  background:none;border:none;
+  font-size:11px;
+  color:#6b7280;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
-
-/* NAV BAR */
-nav {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    max-width: 430px;
-    background: rgba(255,255,255,0.95);
-    border-top: 1px solid #e5e5e5;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-}
-
-.nav-item {
-    background: none;
-    border: none;
-    font-size: 10px;
-    color: #8e8e93;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.nav-item.active {
-    color: #4f46e5;
-    font-weight: bold;
-}
-
-.nav-icon {
-    font-size: 20px;
-}
+.nav-btn.active{color:#4f46e5;font-weight:800}
 </style>
 </head>
 
 <body>
+<div class="app">
 
-<div class="app-container">
-
-<header>
-    <div class="logo">SportLink</div>
-    <div class="status">● Online</div>
-</header>
+<header>SportLink</header>
+<div class="status-bar">🟢 Online • Safe</div>
 
 <main>
 
 <!-- FEED -->
 <section id="feed" class="view active">
-    <h2>Nearby Events</h2>
-
-    <div class="card">
-        <strong>🏃 Morning Run</strong>
-        <p style="color:#666;">Today • 7:30 AM • Riverside Park</p>
-        <button class="btn btn-primary"
-            onclick="this.innerText='Joined'; this.style.background='#34c759'">
-            Join Workout
-        </button>
+  <div class="card">
+    <div class="card-header">
+      <div class="avatar">M</div>
+      <div>
+        <strong>Marcus Wright</strong><br>
+        <small>Morning Run • Central Park</small>
+      </div>
     </div>
+    <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=1000">
+    <div class="card-body">
+      Just crushed a 10k! Who’s joining for the evening recovery session?
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="avatar" style="background:#10b981">S</div>
+      <div>
+        <strong>Sarah Jenkins</strong><br>
+        <small>Yoga Flow • Riverside Studio</small>
+      </div>
+    </div>
+    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1000">
+    <div class="card-body">
+      Sunset yoga session tomorrow at 6 PM 🌅
+    </div>
+  </div>
 </section>
 
 <!-- ACCOUNT -->
 <section id="account" class="view">
-    <div class="card" style="text-align:center;">
-        <div style="
-            width:90px;height:90px;
-            border-radius:50%;
-            background:#4f46e5;
-            color:white;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size:36px;
-            font-weight:bold;
-            margin:0 auto 12px;">
-            A
-        </div>
+  <div class="profile">
+    <div class="avatar">A</div>
+    <h2>Alla Hakobyan</h2>
+    <p>@allahakobyan</p>
+  </div>
 
-        <h2>Alla Hakobyan</h2>
-        <p style="color:#666;">@allahakobyan</p>
+  <div class="stats">
+    <div class="stat">Activities<br>12</div>
+    <div class="stat">Distance<br>214 km</div>
+  </div>
 
-        <div style="display:flex; justify-content:space-around; margin-top:20px;">
-            <div>
-                <strong>12</strong>
-                <div style="font-size:12px;color:#666;">Sessions</div>
-            </div>
-            <div>
-                <strong>9</strong>
-                <div style="font-size:12px;color:#666;">Attended</div>
-            </div>
-            <div>
-                <strong>75%</strong>
-                <div style="font-size:12px;color:#666;">Reliability</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <button class="btn btn-primary">Edit Profile</button>
-    </div>
+  <div style="margin-top:20px">
+    <button class="btn btn-blue">Edit Profile</button><br><br>
+    <button class="btn btn-red">Log Out</button>
+  </div>
 </section>
 
 <!-- SEARCH -->
-<section id="search" class="view">
-    <input type="text" placeholder="Search partners or sports"
-        style="width:100%;padding:12px;border-radius:10px;border:1px solid #ddd;">
+<section id="search" class="view search">
+  <input placeholder="Search sports or partners">
+  <p style="text-align:center;color:#6b7280;margin-top:20px">
+    Find athletes near you
+  </p>
 </section>
 
 <!-- SAFETY -->
-<section id="safety" class="view" style="text-align:center;">
-    <div class="card" style="background:#fdf2f2;">
-        <h3>Safety Tracking</h3>
-        <p style="color:#666;">Trusted contacts will be notified</p>
+<section id="safety" class="view">
+  <div class="safety-box" id="safetyIdle">
+    <h3>Safe-Track Mode</h3>
+    <p>Real-time safety monitoring</p>
+    <button class="btn btn-green" onclick="startSafety()">Activate Safety</button>
+  </div>
 
-        <div id="timer" class="timer">00:00:00</div>
-
-        <button id="safetyBtn" class="btn btn-primary" onclick="toggleSafety()">
-            Start Tracking
-        </button>
-    </div>
+  <div class="safety-box" id="safetyActive" style="display:none">
+    <h3>TRACKING LIVE</h3>
+    <div class="timer" id="timer">00:00:00</div>
+    <button class="btn btn-red" onclick="sendSOS()">🚨 SOS</button><br><br>
+    <button class="btn btn-blue" onclick="stopSafety()">End Session</button>
+  </div>
 </section>
 
 </main>
 
-<!-- NAVIGATION -->
 <nav>
-    <button class="nav-item active" onclick="showView('feed', this)">
-        <span class="nav-icon">🏠</span>
-        Feed
-    </button>
-    <button class="nav-item" onclick="showView('account', this)">
-        <span class="nav-icon">👤</span>
-        Account
-    </button>
-    <button class="nav-item" onclick="showView('search', this)">
-        <span class="nav-icon">🔍</span>
-        Search
-    </button>
-    <button class="nav-item" onclick="showView('safety', this)">
-        <span class="nav-icon">🛡️</span>
-        Safety
-    </button>
+  <button class="nav-btn active" onclick="show('feed',this)">🏠 Feed</button>
+  <button class="nav-btn" onclick="show('account',this)">👤 Account</button>
+  <button class="nav-btn" onclick="show('search',this)">🔍 Search</button>
+  <button class="nav-btn" onclick="show('safety',this)">🛡 Safety</button>
 </nav>
 
 </div>
 
 <script>
-/* NAVIGATION */
-function showView(id, btn) {
-    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
+let sec=0,intv;
 
-    document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+function show(id,btn){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
 }
 
-/* SAFETY TIMER */
-let seconds = 0;
-let interval = null;
-let active = false;
+function startSafety(){
+  document.getElementById('safetyIdle').style.display='none';
+  document.getElementById('safetyActive').style.display='block';
+  sec=0;
+  intv=setInterval(()=>{
+    sec++;
+    let h=String(Math.floor(sec/3600)).padStart(2,'0');
+    let m=String(Math.floor((sec%3600)/60)).padStart(2,'0');
+    let s=String(sec%60).padStart(2,'0');
+    document.getElementById('timer').innerText=`${h}:${m}:${s}`;
+  },1000);
+}
 
-function toggleSafety() {
-    const btn = document.getElementById('safetyBtn');
-    const timer = document.getElementById('timer');
+function stopSafety(){
+  clearInterval(intv);
+  document.getElementById('safetyActive').style.display='none';
+  document.getElementById('safetyIdle').style.display='block';
+  alert("Session ended. You are safe.");
+}
 
-    if (!active) {
-        active = true;
-        btn.innerText = "End Session";
-        btn.className = "btn btn-danger";
-
-        interval = setInterval(() => {
-            seconds++;
-            const h = String(Math.floor(seconds / 3600)).padStart(2,'0');
-            const m = String(Math.floor((seconds % 3600)/60)).padStart(2,'0');
-            const s = String(seconds % 60).padStart(2,'0');
-            timer.innerText = `${h}:${m}:${s}`;
-        }, 1000);
-    } else {
-        active = false;
-        clearInterval(interval);
-        seconds = 0;
-        timer.innerText = "00:00:00";
-        btn.innerText = "Start Tracking";
-        btn.className = "btn btn-primary";
-        alert("Session ended. You are safe.");
-    }
+function sendSOS(){
+  alert("🚨 SOS sent to emergency contacts!");
 }
 </script>
 
 </body>
 </html>
+
