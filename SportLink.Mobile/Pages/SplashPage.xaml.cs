@@ -13,12 +13,11 @@ public partial class SplashPage : ContentPage
         if (Logo == null || TitleLabel == null)
             return;
 
-        // Logo fade
         await Logo.FadeTo(1, 800);
 
         await Task.Delay(300);
 
-        //  text in center
+      
         TitleLabel.Opacity = 1;
 
         string text = "SportLink";
