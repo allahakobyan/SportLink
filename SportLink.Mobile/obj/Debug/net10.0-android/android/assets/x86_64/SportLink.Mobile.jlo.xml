@@ -1,0 +1,15 @@
+<api>
+  <jcw-types>
+    <type name="MainActivity" package="crc64fadd314fb89c58a0" application_java_class="android.app.Application" mono_runtime_initialization="mono.MonoPackageManager.LoadApplication (context);" extends_type="crc6488302ad6e9e4df1a.MauiAppCompatActivity" partial_assembly_qualified_name="SportLink.Mobile.MainActivity, SportLink.Mobile">
+      <constructors>
+        <constructor name="MainActivity" method="n_.ctor:()V:" jni_signature="()V" managed_parameters="" retval="void" is_dynamically_registered="True" />
+        <constructor name="MainActivity" method="n_.ctor:(I)V:" jni_signature="(I)V" managed_parameters="System.Int32, System.Private.CoreLib" params="int p0" retval="void" is_dynamically_registered="True" super_call="p0" activate_call="p0" />
+      </constructors>
+    </type>
+    <type name="MainApplication" package="crc64fadd314fb89c58a0" application_java_class="android.app.Application" mono_runtime_initialization="mono.MonoPackageManager.LoadApplication (context);" extends_type="crc6488302ad6e9e4df1a.MauiApplication" is_application="True" partial_assembly_qualified_name="SportLink.Mobile.MainApplication, SportLink.Mobile" application_constructor="MainApplication" />
+  </jcw-types>
+  <acw-types partial-assembly-name="SportLink.Mobile" module-name="SportLink.Mobile.dll">
+    <type assembly-qualified-name="SportLink.Mobile.MainActivity, SportLink.Mobile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" compat-jni-name="sportlink.mobile.MainActivity" java-key="crc64fadd314fb89c58a0.MainActivity" managed-key="SportLink.Mobile.MainActivity" partial-assembly-qualified-name="SportLink.Mobile.MainActivity, SportLink.Mobile" />
+    <type assembly-qualified-name="SportLink.Mobile.MainApplication, SportLink.Mobile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" compat-jni-name="sportlink.mobile.MainApplication" java-key="crc64fadd314fb89c58a0.MainApplication" managed-key="SportLink.Mobile.MainApplication" partial-assembly-qualified-name="SportLink.Mobile.MainApplication, SportLink.Mobile" />
+  </acw-types>
+</api>

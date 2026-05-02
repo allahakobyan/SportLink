@@ -1,0 +1,76 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SportLink.Mobile.Pages.Feed.FeedPage"
+             BackgroundColor="#F7F8FC"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16">
+
+            <!-- TOP BAR -->
+            <Grid ColumnDefinitions="*,Auto">
+                <Label Text="SportLink"
+                       FontSize="20"
+                       FontAttributes="Bold"/>
+
+                <Button Grid.Column="1"
+                        Text="+"
+                        Clicked="OnAddClicked"/>
+            </Grid>
+
+            <!-- FEED -->
+            <CollectionView x:Name="FeedList">
+                <CollectionView.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <VerticalStackLayout Spacing="16">
+
+                            <!-- EVENT -->
+                            <Frame BackgroundColor="White"
+                                   CornerRadius="16"
+                                   Padding="12"
+                                   IsVisible="{Binding IsEvent}">
+
+                                <VerticalStackLayout>
+
+                                    <Label Text="{Binding Event.Title}"
+                                           FontAttributes="Bold"
+                                           FontSize="16"/>
+
+                                    <Label Text="{Binding Event.Date}"/>
+                                    <Label Text="{Binding Event.Time}"/>
+
+                                    <Button Text="See details"
+                                            Clicked="OnViewDetailsClicked"/>
+                                </VerticalStackLayout>
+                            </Frame>
+
+                            <!-- POLL -->
+                            <Frame BackgroundColor="#EAF4FD"
+                                   CornerRadius="16"
+                                   Padding="12"
+                                   IsVisible="{Binding IsPoll}">
+
+                                <VerticalStackLayout>
+
+                                    <Label Text="{Binding Poll.Question}"
+                                           FontAttributes="Bold"/>
+
+                                    <Button Text="{Binding Poll.Options[0]}" Clicked="OnVoteClicked"/>
+                                    <Button Text="{Binding Poll.Options[1]}" Clicked="OnVoteClicked"/>
+                                    <Button Text="{Binding Poll.Options[2]}" Clicked="OnVoteClicked"/>
+                                </VerticalStackLayout>
+                            </Frame>
+
+                        </VerticalStackLayout>
+
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,30 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SportLink.Mobile.Pages.SplashPage"
+             BackgroundColor="White">
+
+    <Grid>
+
+        <!-- ICON -->
+        <Image x:Name="Logo"
+               Source="appicon.png"
+               WidthRequest="120"
+               HeightRequest="120"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Opacity="0"/>
+
+        <!-- TEXT -->
+        <Label x:Name="TitleLabel"
+       Text=""
+       FontSize="34"
+       FontFamily="Times New Roman"
+       FontAttributes="Italic"
+       TextColor="#222"
+       HorizontalOptions="Center"
+       VerticalOptions="Center"
+       Opacity="0"/>
+
+    </Grid>
+
+</ContentPage>

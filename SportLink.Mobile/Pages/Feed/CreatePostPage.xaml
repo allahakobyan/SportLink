@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SportLink.Mobile.Pages.Feed.CreatePostPage"
+             BackgroundColor="#F7F8FC"
+             Shell.NavBarIsVisible="False"
+             Title="Create Post">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20,30,20,20" Spacing="18">
+
+            <!-- Header -->
+            <Grid ColumnDefinitions="Auto,*"
+                  ColumnSpacing="12">
+                <Button Text="←"
+                        Clicked="OnBackClicked"
+                        BackgroundColor="Transparent"
+                        TextColor="#111"
+                        FontSize="22"
+                        Padding="0"
+                        WidthRequest="36"
+                        HeightRequest="36" />
+
+                <Label Grid.Column="1"
+                       Text="Create Post"
+                       FontSize="26"
+                       FontAttributes="Bold"
+                       TextColor="#111"
+                       VerticalOptions="Center" />
+            </Grid>
+
+            <!-- Form Container -->
+            <Frame CornerRadius="18"
+                   Padding="16"
+                   BackgroundColor="White"
+                   HasShadow="True">
+
+                <VerticalStackLayout Spacing="14">
+
+                    <!-- Caption -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="What's on your mind?"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               TextColor="#111" />
+                        <Editor x:Name="CaptionEditor"
+                                Placeholder="Write something..."
+                                AutoSize="TextChanges"
+                                HeightRequest="140"
+                                TextColor="Black"
+                                PlaceholderColor="#888" />
+                    </VerticalStackLayout>
+
+                    <!-- Image Preview -->
+                    <Frame x:Name="ImagePreviewFrame"
+                           CornerRadius="14"
+                           Padding="0"
+                           BackgroundColor="#F7F8FC"
+                           BorderColor="#E0E0E0"
+                           HasShadow="False"
+                           IsVisible="False">
+                        <Grid RowDefinitions="*,Auto">
+                            <Image x:Name="PostImage"
+                                   Aspect="AspectFill"
+                                   HeightRequest="240" />
+                            <Button Grid.Row="1"
+                                    Text="✕ Remove Image"
+                                    Clicked="OnRemoveImageClicked"
+                                    BackgroundColor="#FFEBEE"
+                                    TextColor="#E74C3C"
+                                    Padding="8,6"
+                                    CornerRadius="0"
+                                    FontSize="12" />
+                        </Grid>
+                    </Frame>
+
+                    <!-- Upload Options -->
+                    <Label Text="Add Photo (optional)"
+                           FontSize="13"
+                           FontAttributes="Bold"
+                           TextColor="#111" />
+
+                    <Grid ColumnDefinitions="*,*"
+                          ColumnSpacing="12">
+                        <Button Grid.Column="0"
+                                Text="Take Photo"
+                                Clicked="OnTakePhotoClicked"
+                                BackgroundColor="#DCE4F5"
+                                TextColor="#333"
+                                CornerRadius="12"
+                                HeightRequest="44"
+                                FontSize="14" />
+
+                        <Button Grid.Column="1"
+                                Text="Choose Photo"
+                                Clicked="OnChoosePhotoClicked"
+                                BackgroundColor="#DCE4F5"
+                                TextColor="#333"
+                                CornerRadius="12"
+                                HeightRequest="44"
+                                FontSize="14" />
+                    </Grid>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Publish Button -->
+            <Button x:Name="PublishButton"
+                    Text="Publish Post"
+                    Clicked="OnPublishClicked"
+                    BackgroundColor="#6C5CE7"
+                    TextColor="White"
+                    CornerRadius="14"
+                    HeightRequest="52"
+                    FontAttributes="Bold"
+                    FontSize="16" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

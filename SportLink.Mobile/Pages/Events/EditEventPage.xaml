@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SportLink.Mobile.Pages.Events.EditEventPage"
+             BackgroundColor="#F7F8FC">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="Edit Event"
+                   FontSize="26"
+                   FontAttributes="Bold"
+                   TextColor="Black"/>
+
+            <!-- TITLE -->
+            <Entry x:Name="TitleEntry"
+                   Placeholder="Event title" />
+
+            <!-- DATE -->
+            <DatePicker x:Name="DatePicker" />
+
+            <!-- DESCRIPTION -->
+            <Editor x:Name="DescriptionEditor"
+                    Placeholder="Event description"
+                    HeightRequest="100"/>
+
+            <!-- MAX PARTICIPANTS -->
+            <Entry x:Name="MaxParticipantsEntry"
+                   Placeholder="Maximum participants"
+                   Keyboard="Numeric" />
+
+            <!-- PAID SWITCH -->
+            <HorizontalStackLayout Spacing="10">
+                <Label Text="Paid event"
+                       VerticalOptions="Center"/>
+                <Switch x:Name="PaidSwitch"
+                        Toggled="OnPaidToggled"/>
+            </HorizontalStackLayout>
+
+            <!-- PRICE -->
+            <Entry x:Name="PriceEntry"
+                   Placeholder="Enter price"
+                   Keyboard="Numeric"
+                   IsEnabled="False"/>
+
+            <!-- SAVE BUTTON -->
+            <Button Text="Save Changes"
+                    Clicked="OnSaveClicked"
+                    BackgroundColor="#6A5AE0"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="50"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

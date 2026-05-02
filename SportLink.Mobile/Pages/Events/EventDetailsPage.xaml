@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SportLink.Mobile.Pages.Events.EventDetailsPage"
+             BackgroundColor="#F7F8FC">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- TITLE -->
+            <Label Text="Event Details"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="Black" />
+
+            <!-- MAIN CARD -->
+            <Frame CornerRadius="16"
+                   Padding="15"
+                   BackgroundColor="White"
+                   HasShadow="True">
+
+                <VerticalStackLayout Spacing="10">
+
+                    <!-- EVENT NAME -->
+                    <Label x:Name="TitleLabel"
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           TextColor="Black" />
+
+                    <!-- DATE -->
+                    <Label x:Name="DateLabel"
+                           TextColor="Black" />
+
+                    <!-- PRICE -->
+                    <Label x:Name="PriceLabel"
+                           TextColor="Black" />
+
+                    <!-- PARTICIPANTS -->
+                    <Label x:Name="ParticipantsLabel"
+                           TextColor="Black" />
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+            <!-- DESCRIPTION -->
+            <Label Text="Description"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="Black" />
+
+            <Frame CornerRadius="16"
+                   Padding="15"
+                   BackgroundColor="White"
+                   HasShadow="True">
+
+                <Label x:Name="DescriptionLabel"
+                       TextColor="Black"
+                       LineBreakMode="WordWrap" />
+
+            </Frame>
+
+            <!-- 🔥 REVIEWS SECTION (THIS FIXES YOUR ERROR) -->
+            <Label Text="Reviews"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="Black" />
+
+            <CollectionView x:Name="ReviewsList">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10"
+                               Margin="0,5"
+                               BackgroundColor="White"
+                               CornerRadius="12">
+
+                            <VerticalStackLayout Spacing="4">
+                                <Label Text="{Binding Stars}"
+                                       FontAttributes="Bold"
+                                       TextColor="#E6B800"
+                                       FontSize="18" />
+
+                                <Label Text="{Binding Comment}"
+                                       TextColor="Black" />
+                            </VerticalStackLayout>
+
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+            <!-- BUTTONS -->
+
+            <Button x:Name="JoinButton"
+        Text="Join"
+        Clicked="OnJoinClicked"
+        BackgroundColor="#D6EAF8"
+        TextColor="#2C3E50" />
+
+            <Button x:Name="DeleteButton"
+        Text="Delete Event"
+        Clicked="OnDeleteClicked"
+        BackgroundColor="#FADBD8"
+        TextColor="#922B21" />
+
+            <Button x:Name="EditButton"
+        Text="Edit Event"
+        Clicked="OnEditClicked"
+        BackgroundColor="#FCF3CF"
+        TextColor="#7D6608" />
+
+            <Button Text="View Participants"
+        Clicked="OnViewParticipantsClicked"
+        BackgroundColor="#E8DAEF"
+        TextColor="#5B2C6F" />
+
+            <Button Text="Leave Review"
+        Clicked="OnLeaveReviewClicked"
+        BackgroundColor="#D5F5E3"
+        TextColor="#145A32" />
+
+            <!-- OPTIONAL: ADD REVIEW BUTTON -->
+            <Button Text="Leave Review"
+                    Clicked="OnLeaveReviewClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

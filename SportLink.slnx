@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="SportLink.API/SportLink.API.csproj" />
+  <Project Path="SportLink.Mobile/SportLink.Mobile.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+  <Project Path="SportLink.Shared/SportLink.Shared.csproj" />
+</Solution>

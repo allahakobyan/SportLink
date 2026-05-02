@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SportLink.Mobile.Pages.Auth.RegisterPage"
+             BackgroundColor="#F7F8FC"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24,40,24,32" Spacing="16">
+
+            <!-- Header -->
+            <VerticalStackLayout Spacing="8" HorizontalOptions="Center">
+                <Label Text="SportLink"
+                       FontSize="36"
+                       FontAttributes="Bold"
+                       TextColor="#1a1a1a"
+                       HorizontalTextAlignment="Center" />
+                <Label Text="Create your account"
+                       FontSize="16"
+                       TextColor="#666666"
+                       HorizontalTextAlignment="Center" />
+            </VerticalStackLayout>
+
+            <!-- Form -->
+            <Frame CornerRadius="24"
+                   Padding="24"
+                   BackgroundColor="White"
+                   HasShadow="True"
+                   BorderColor="#f0f0f0">
+
+                <VerticalStackLayout Spacing="14">
+
+                    <!-- Full Name -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Full Name"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               TextColor="#111" />
+                        <Frame CornerRadius="12"
+                               Padding="14,12"
+                               BackgroundColor="#F7F8FC"
+                               BorderColor="#E0E0E0"
+                               HasShadow="False">
+                            <Entry x:Name="NameEntry"
+                                   Placeholder="Enter full name"
+                                   PlaceholderColor="#999"
+                                   TextColor="#111"
+                                   FontSize="15"
+                                   ClearButtonVisibility="WhileEditing" />
+                        </Frame>
+                    </VerticalStackLayout>
+
+                    <!-- Username -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Username"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               TextColor="#111" />
+                        <Frame CornerRadius="12"
+                               Padding="14,12"
+                               BackgroundColor="#F7F8FC"
+                               BorderColor="#E0E0E0"
+                               HasShadow="False">
+                            <Entry x:Name="UsernameEntry"
+                                   Placeholder="Choose a username"
+                                   PlaceholderColor="#999"
+                                   TextColor="#111"
+                                   FontSize="15"
+                                   ClearButtonVisibility="WhileEditing" />
+                        </Frame>
+                    </VerticalStackLayout>
+
+                    <!-- Email -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Email Address"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               TextColor="#111" />
+                        <Frame CornerRadius="12"
+                               Padding="14,12"
+                               BackgroundColor="#F7F8FC"
+                               BorderColor="#E0E0E0"
+                               HasShadow="False">
+                            <Entry x:Name="EmailEntry"
+                                   Placeholder="Enter email"
+                                   PlaceholderColor="#999"
+                                   Keyboard="Email"
+                                   TextColor="#111"
+                                   FontSize="15"
+                                   ClearButtonVisibility="WhileEditing" />
+                        </Frame>
+                    </VerticalStackLayout>
+
+                    <!-- Password -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Password"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               TextColor="#111" />
+                        <Frame CornerRadius="12"
+                               Padding="14,12"
+                               BackgroundColor="#F7F8FC"
+                               BorderColor="#E0E0E0"
+                               HasShadow="False">
+                            <Entry x:Name="PasswordEntry"
+                                   Placeholder="Create password"
+                                   PlaceholderColor="#999"
+                                   IsPassword="True"
+                                   TextColor="#111"
+                                   FontSize="15"
+                                   ClearButtonVisibility="WhileEditing"
+                                   TextChanged="OnPasswordChanged" />
+                        </Frame>
+                    </VerticalStackLayout>
+
+                    <!-- Password Requirements -->
+                    <Frame CornerRadius="12"
+                           Padding="12"
+                           BackgroundColor="#F0F7FF"
+                           BorderColor="#D4E8FF"
+                           HasShadow="False">
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Password must contain:"
+                                   FontSize="12"
+                                   FontAttributes="Bold"
+                                   TextColor="#0066CC" />
+
+                            <HorizontalStackLayout Spacing="8">
+                                <Label x:Name="Req8Chars"
+                                       Text="✕"
+                                       TextColor="#E74C3C"
+                                       FontSize="14"
+                                       FontAttributes="Bold"
+                                       WidthRequest="20" />
+                                <Label Text="At least 8 characters"
+                                       TextColor="#666"
+                                       FontSize="12"
+                                       VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout Spacing="8">
+                                <Label x:Name="ReqUppercase"
+                                       Text="✕"
+                                       TextColor="#E74C3C"
+                                       FontSize="14"
+                                       FontAttributes="Bold"
+                                       WidthRequest="20" />
+                                <Label Text="One uppercase letter (A-Z)"
+                                       TextColor="#666"
+                                       FontSize="12"
+                                       VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout Spacing="8">
+                                <Label x:Name="ReqLowercase"
+                                       Text="✕"
+                                       TextColor="#E74C3C"
+                                       FontSize="14"
+                                       FontAttributes="Bold"
+                                       WidthRequest="20" />
+                                <Label Text="One lowercase letter (a-z)"
+                                       TextColor="#666"
+                                       FontSize="12"
+                                       VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout Spacing="8">
+                                <Label x:Name="ReqNumber"
+                                       Text="✕"
+                                       TextColor="#E74C3C"
+                                       FontSize="14"
+                                       FontAttributes="Bold"
+                                       WidthRequest="20" />
+                                <Label Text="One number (0-9)"
+                                       TextColor="#666"
+                                       FontSize="12"
+                                       VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout Spacing="8">
+                                <Label x:Name="ReqSymbol"
+           Text="✕"
+           TextColor="#E74C3C"
+           FontSize="14"
+           FontAttributes="Bold"
+           WidthRequest="20" />
+
+                                <Label Text="One symbol (!@#$%^&amp;* etc)"
+           TextColor="#666"
+           FontSize="12"
+           VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- Error Message -->
+                    <Label x:Name="ErrorLabel"
+                           Text=""
+                           TextColor="#E74C3C"
+                           FontSize="13"
+                           IsVisible="False" />
+
+                    <!-- Create Account Button -->
+                    <Button x:Name="CreateButton"
+                            Text="Create Account"
+                            Clicked="OnRegisterClicked"
+                            BackgroundColor="#6C5CE7"
+                            TextColor="White"
+                            CornerRadius="14"
+                            HeightRequest="52"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            Margin="0,8,0,0" />
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Already Have Account -->
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="4">
+                <Label Text="Already have an account?"
+                       FontSize="14"
+                       TextColor="#666" />
+                <Label Text="Log in"
+                       FontSize="14"
+                       TextColor="#6C5CE7"
+                       FontAttributes="Bold">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnLoginTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

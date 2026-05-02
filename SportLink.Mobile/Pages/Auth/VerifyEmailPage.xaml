@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SportLink.Mobile.Pages.Auth.VerifyEmailPage"
+             BackgroundColor="#F7F8FC"
+             Shell.NavBarIsVisible="False"
+             Title="Verify Email">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24,60,24,32" Spacing="24" VerticalOptions="FillAndExpand">
+
+            <!-- Header -->
+            <VerticalStackLayout Spacing="12" HorizontalOptions="Center">
+                <Label Text="Verify Your Email"
+                       FontSize="32"
+                       FontAttributes="Bold"
+                       TextColor="#1a1a1a"
+                       HorizontalTextAlignment="Center" />
+                <Label x:Name="EmailLabel"
+                       Text="Verification code sent to your email"
+                       FontSize="14"
+                       TextColor="#666666"
+                       HorizontalTextAlignment="Center" />
+            </VerticalStackLayout>
+
+            <!-- Verification Code Input -->
+            <Frame CornerRadius="24"
+                   Padding="24"
+                   BackgroundColor="White"
+                   HasShadow="True"
+                   BorderColor="#f0f0f0">
+
+                <VerticalStackLayout Spacing="18">
+
+                    <!-- Code Entry -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Verification Code"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               TextColor="#111" />
+                        <Label Text="Enter the 6-digit code sent to your email"
+                               FontSize="12"
+                               TextColor="#999" />
+                        <Frame CornerRadius="12"
+                               Padding="14,12"
+                               BackgroundColor="#F7F8FC"
+                               BorderColor="#E0E0E0"
+                               HasShadow="False">
+                            <Entry x:Name="VerificationCodeEntry"
+                                   Placeholder="000000"
+                                   PlaceholderColor="#999"
+                                   TextColor="#111"
+                                   FontSize="24"
+                                   HorizontalTextAlignment="Center"
+                                   Keyboard="Numeric"
+                                   MaxLength="6"
+                                   ClearButtonVisibility="WhileEditing" />
+                        </Frame>
+                    </VerticalStackLayout>
+
+                    <!-- Password Re-entry (for security) -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Confirm Password"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               TextColor="#111" />
+                        <Frame CornerRadius="12"
+                               Padding="14,12"
+                               BackgroundColor="#F7F8FC"
+                               BorderColor="#E0E0E0"
+                               HasShadow="False">
+                            <Entry x:Name="PasswordConfirmEntry"
+                                   Placeholder="Re-enter your password"
+                                   PlaceholderColor="#999"
+                                   IsPassword="True"
+                                   TextColor="#111"
+                                   FontSize="15"
+                                   ClearButtonVisibility="WhileEditing" />
+                        </Frame>
+                    </VerticalStackLayout>
+
+                    <!-- Error Message -->
+                    <Label x:Name="ErrorLabel"
+                           Text=""
+                           TextColor="#E74C3C"
+                           FontSize="13"
+                           IsVisible="False" />
+
+                    <!-- Verify Button -->
+                    <Button x:Name="VerifyButton"
+        Text="Verify &amp; Complete Registration"
+        Clicked="OnVerifyClicked"
+        BackgroundColor="#6C5CE7"
+        TextColor="White"
+        CornerRadius="14"
+        HeightRequest="52"
+        FontAttributes="Bold"
+        FontSize="16"
+        Margin="0,8,0,0" />
+
+                    <!-- Resend Code -->
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="4">
+                        <Label Text="Didn't receive the code?"
+                               FontSize="13"
+                               TextColor="#666" />
+                        <Label Text="Resend"
+                               FontSize="13"
+                               TextColor="#6C5CE7"
+                               FontAttributes="Bold">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnResendClicked" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </HorizontalStackLayout>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Info Box -->
+            <Frame CornerRadius="16"
+                   Padding="16"
+                   BackgroundColor="#FFF3CD"
+                   BorderColor="#FFE69C"
+                   HasShadow="False">
+                <Label Text="Check your spam folder if you don't see the email within a few minutes."
+                       FontSize="12"
+                       TextColor="#856404"
+                       LineBreakMode="WordWrap" />
+            </Frame>
+
+            <BoxView HeightRequest="1" Color="Transparent" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

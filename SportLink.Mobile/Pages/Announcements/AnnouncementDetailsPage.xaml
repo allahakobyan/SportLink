@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SportLink.Mobile.Pages.Announcements.AnnouncementDetailsPage"
+             BackgroundColor="#F7F8FC">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Label x:Name="TitleLabel"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="Black" />
+
+            <Label x:Name="CreatedAtLabel"
+                   FontSize="14"
+                   TextColor="#666" />
+
+            <Frame Padding="15"
+                   BackgroundColor="White"
+                   CornerRadius="16">
+                <Label x:Name="BodyLabel"
+                       TextColor="Black"
+                       LineBreakMode="WordWrap" />
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

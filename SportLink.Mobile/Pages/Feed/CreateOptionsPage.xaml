@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SportLink.Mobile.Pages.Feed.CreateOptionsPage"
+             Title="Create"
+             BackgroundColor="#F7F8FC">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20,30,20,20" Spacing="18">
+
+            <Label Text="Create"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="#111" />
+
+            <!-- Post -->
+            <Frame CornerRadius="18"
+                   Padding="16"
+                   BackgroundColor="White"
+                   HasShadow="True">
+                <Grid ColumnDefinitions="*,Auto">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Post"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="#111" />
+                        <Label Text="Share thoughts, updates, photos"
+                               FontSize="13"
+                               TextColor="#666" />
+                    </VerticalStackLayout>
+
+                    <Button Grid.Column="1"
+                            Text="Open"
+                            Clicked="OnPostClicked"
+                            CornerRadius="12"
+                            BackgroundColor="#DDEAF5"
+                            TextColor="Black" />
+                </Grid>
+            </Frame>
+
+            <!-- Poll -->
+            <Frame CornerRadius="18"
+                   Padding="16"
+                   BackgroundColor="White"
+                   HasShadow="True">
+                <Grid ColumnDefinitions="*,Auto">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Poll"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="#111" />
+                        <Label Text="Ask the community to vote"
+                               FontSize="13"
+                               TextColor="#666" />
+                    </VerticalStackLayout>
+
+                    <Button Grid.Column="1"
+                            Text="Open"
+                            Clicked="OnPollClicked"
+                            CornerRadius="12"
+                            BackgroundColor="#FFE7C2"
+                            TextColor="Black" />
+                </Grid>
+            </Frame>
+
+            <!-- Event -->
+            <Frame CornerRadius="18"
+                   Padding="16"
+                   BackgroundColor="White"
+                   HasShadow="True">
+                <Grid ColumnDefinitions="*,Auto">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Event"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="#111" />
+                        <Label Text="Create and organize an event"
+                               FontSize="13"
+                               TextColor="#666" />
+                    </VerticalStackLayout>
+
+                    <Button Grid.Column="1"
+                            Text="Open"
+                            Clicked="OnEventClicked"
+                            CornerRadius="12"
+                            BackgroundColor="#C8E6C9"
+                            TextColor="Black" />
+                </Grid>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

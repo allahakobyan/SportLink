@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SportLink.Mobile.Pages.Events.ReviewPage"
+             BackgroundColor="#F7F8FC">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Label Text="Leave Review"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="Black" />
+
+            <Label Text="Rating (1 to 5)"
+                   FontSize="16"
+                   TextColor="Black" />
+
+            <Entry x:Name="RatingEntry"
+                   Placeholder="Enter rating"
+                   Keyboard="Numeric"
+                   TextColor="Black" />
+
+            <Label Text="Comment"
+                   FontSize="16"
+                   TextColor="Black" />
+
+            <Editor x:Name="CommentEditor"
+                    Placeholder="Write your review"
+                    AutoSize="TextChanges"
+                    TextColor="Black" />
+
+            <Button Text="Save Review"
+                    Clicked="OnSaveReviewClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

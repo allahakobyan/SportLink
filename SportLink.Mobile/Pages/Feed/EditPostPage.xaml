@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SportLink.Mobile.Pages.Feed.EditPostPage"
+             BackgroundColor="#F7F8FC"
+             Title="Edit Post"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20,24,20,24" Spacing="18">
+
+            <Grid ColumnDefinitions="Auto,*"
+                  ColumnSpacing="12">
+                <Button Text="←"
+                        Clicked="OnBackClicked"
+                        BackgroundColor="Transparent"
+                        TextColor="#111"
+                        FontSize="22"
+                        Padding="0"
+                        WidthRequest="36"
+                        HeightRequest="36" />
+
+                <Label Grid.Column="1"
+                       Text="Edit Post"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       TextColor="#111"
+                       VerticalOptions="Center" />
+            </Grid>
+
+            <Frame CornerRadius="18"
+                   Padding="16"
+                   BackgroundColor="White"
+                   HasShadow="True">
+
+                <VerticalStackLayout Spacing="14">
+
+                    <Entry x:Name="UsernameEntry"
+                           Placeholder="Username"
+                           PlaceholderColor="#999999"
+                           TextColor="#111"
+                           MaxLength="100" />
+
+                    <Entry x:Name="ProfileImageUrlEntry"
+                           Placeholder="Profile image URL (optional)"
+                           PlaceholderColor="#999999"
+                           TextColor="#111"
+                           MaxLength="1000" />
+
+                    <Editor x:Name="CaptionEditor"
+                            Placeholder="Write something..."
+                            PlaceholderColor="#999999"
+                            TextColor="#111"
+                            AutoSize="TextChanges"
+                            HeightRequest="140"
+                            MaxLength="2000" />
+
+                    <Entry x:Name="ImageUrlEntry"
+                           Placeholder="Post image URL (optional)"
+                           PlaceholderColor="#999999"
+                           TextColor="#111"
+                           MaxLength="1000" />
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button Text="Save Changes"
+                    Clicked="OnSaveClicked"
+                    HeightRequest="50"
+                    CornerRadius="16"
+                    BackgroundColor="#DDEAF5"
+                    TextColor="#111"
+                    FontAttributes="Bold" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

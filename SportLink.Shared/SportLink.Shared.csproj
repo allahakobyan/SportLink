@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Constants\" />
+    <Folder Include="DTOs\Auth\" />
+    <Folder Include="DTOs\Events\" />
+    <Folder Include="DTOs\Announcements\" />
+    <Folder Include="DTOs\Subscriptions\" />
+    <Folder Include="DTOs\Users\" />
+    <Folder Include="DTOs\SOS\" />
+    <Folder Include="DTOs\Polls\" />
+    <Folder Include="Enums\EventStatus.cs\" />
+    <Folder Include="Enums\AnnouncementTargetType.cs\" />
+    <Folder Include="Enums\SubscriptionStatus.cs\" />
+    <Folder Include="Enums\SOSStatus.cs\" />
+    <Folder Include="Enums\PaymentStatus.cs\" />
+    <Folder Include="Enums\UserRole.cs\" />
+  </ItemGroup>
+
+</Project>

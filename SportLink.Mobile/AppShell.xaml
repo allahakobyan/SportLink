@@ -1,0 +1,46 @@
+<Shell
+    x:Class="SportLink.Mobile.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:auth="clr-namespace:SportLink.Mobile.Pages.Auth"
+    xmlns:feed="clr-namespace:SportLink.Mobile.Pages.Feed"
+    xmlns:sos="clr-namespace:SportLink.Mobile.Pages.SOS"
+    xmlns:profile="clr-namespace:SportLink.Mobile.Pages.Profile"
+    xmlns:search="clr-namespace:SportLink.Mobile.Pages.Search"
+
+    Shell.TabBarForegroundColor="#6C5CE7"
+    Shell.TabBarUnselectedColor="#888"
+    Shell.TabBarTitleColor="#6C5CE7"
+    Shell.TabBarBackgroundColor="White">
+
+    <!-- Start page -->
+    <ShellContent
+        Route="LoginPage"
+        ContentTemplate="{DataTemplate auth:LoginPage}" />
+
+    <!-- Main app -->
+    <TabBar Route="Main">
+
+        <ShellContent
+            Route="FeedPage"
+            Icon="home.svg"
+            ContentTemplate="{DataTemplate feed:FeedPage}" />
+
+        <ShellContent
+            Route="SOSPage"
+            Icon="shield.svg"
+            ContentTemplate="{DataTemplate sos:SOSPage}" />
+
+        <ShellContent
+            Route="ProfilePage"
+            Icon="user.svg"
+            ContentTemplate="{DataTemplate profile:ProfilePage}" />
+
+        <ShellContent
+            Route="SearchPage"
+            Icon="search.svg"
+            ContentTemplate="{DataTemplate search:SearchPage}" />
+
+    </TabBar>
+
+</Shell>

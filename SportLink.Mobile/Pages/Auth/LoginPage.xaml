@@ -1,0 +1,117 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SportLink.Mobile.Pages.Auth.LoginPage"
+             BackgroundColor="#F7F8FC"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24,48,24,32" Spacing="20">
+
+            <!-- Header -->
+            <VerticalStackLayout Spacing="8" HorizontalOptions="Center">
+                <Label Text="SportLink"
+                       FontSize="36"
+                       FontAttributes="Bold"
+                       TextColor="#1a1a1a"
+                       HorizontalTextAlignment="Center"
+                       CharacterSpacing="0" />
+
+                <Label Text="Log in to your account"
+                       FontSize="16"
+                       TextColor="#666666"
+                       HorizontalTextAlignment="Center" />
+            </VerticalStackLayout>
+
+            <!-- Form -->
+            <Frame CornerRadius="24"
+                   Padding="24"
+                   BackgroundColor="White"
+                   HasShadow="True"
+                   BorderColor="#f0f0f0">
+
+                <VerticalStackLayout Spacing="16">
+
+                    <!-- Email -->
+                    <Label Text="Email or Username"
+                           FontSize="13"
+                           FontAttributes="Bold"
+                           TextColor="#111" />
+
+                    <Entry x:Name="UsernameEntry"
+                           Placeholder="Enter email or username"
+                           TextColor="#111"
+                           FontSize="15" />
+
+                    <!-- Password -->
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Password"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               TextColor="#111" />
+
+                        <Label Grid.Column="1"
+                               Text="Forgot?"
+                               FontSize="12"
+                               TextColor="#6C5CE7">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnForgotPasswordTapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+
+                    <Entry x:Name="PasswordEntry"
+                           Placeholder="Enter password"
+                           IsPassword="True"
+                           TextColor="#111"
+                           FontSize="15" />
+
+                    <!-- Remember me -->
+                    <HorizontalStackLayout Spacing="10">
+                        <CheckBox x:Name="RememberMeCheckBox"
+                                  Color="#6C5CE7" />
+                        <Label Text="Remember me on this device"
+                               VerticalOptions="Center"
+                               TextColor="#666" />
+                    </HorizontalStackLayout>
+
+                    <!-- Error -->
+                    <Label x:Name="ErrorLabel"
+                           TextColor="#E74C3C"
+                           IsVisible="False" />
+
+                    <!-- Button -->
+                    <Button x:Name="LoginButton"
+                            Text="Log In"
+                            Clicked="OnLoginClicked"
+                            BackgroundColor="#6C5CE7"
+                            TextColor="White"
+                            CornerRadius="14"
+                            HeightRequest="52" />
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- SIGN UP-->
+            <HorizontalStackLayout HorizontalOptions="Center"
+                                   Spacing="4"
+                                   Margin="0,16,0,0">
+
+                <Label Text="Don't have an account?"
+                       FontSize="14"
+                       TextColor="#666" />
+
+                <Label Text="Sign up"
+                       FontSize="14"
+                       TextColor="#6C5CE7"
+                       FontAttributes="Bold">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSignUpTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

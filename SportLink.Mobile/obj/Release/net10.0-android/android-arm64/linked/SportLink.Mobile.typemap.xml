@@ -1,0 +1,8 @@
+<api type="release" assembly-name="SportLink.Mobile" mvid="2ee78ce2180843c7a0c1cb7130809a69">
+  <module assembly-name="SportLink.Mobile" mvid="2ee78ce2180843c7a0c1cb7130809a69" mvid-bytes="4oznLggYx0OgwctxMICaaQ==">
+    <types-scratch>
+      <entry key="crc64fadd314fb89c58a0/MainActivity" java-name="crc64fadd314fb89c58a0/MainActivity" managed-type-name="SportLink.Mobile.MainActivity" token="33554443" />
+      <entry key="crc64fadd314fb89c58a0/MainApplication" java-name="crc64fadd314fb89c58a0/MainApplication" managed-type-name="SportLink.Mobile.MainApplication" token="33554444" />
+    </types-scratch>
+  </module>
+</api>

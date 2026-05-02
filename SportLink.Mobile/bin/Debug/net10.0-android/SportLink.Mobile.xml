@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SportLink.Mobile</name>
+    </assembly>
+    <members>
+        <member name="M:SportLink.Mobile.Pages.Auth.VerifyEmailPage.OnVerifyClicked(System.Object,System.EventArgs)">
+            <summary>
+            Verify email code and complete registration
+            </summary>
+        </member>
+        <member name="M:SportLink.Mobile.Pages.Auth.VerifyEmailPage.OnResendClicked(System.Object,Microsoft.Maui.Controls.TappedEventArgs)">
+            <summary>
+            Resend verification code
+            </summary>
+        </member>
+        <member name="M:SportLink.Mobile.Pages.Auth.VerifyEmailPage.ShowError(System.String)">
+            <summary>
+            Show error message
+            </summary>
+        </member>
+        <member name="M:SportLink.Mobile.Pages.Feed.CreatePostPage.OnBackClicked(System.Object,System.EventArgs)">
+            <summary>
+            Go back to previous page
+            </summary>
+        </member>
+        <member name="M:SportLink.Mobile.Pages.Feed.CreatePostPage.OnTakePhotoClicked(System.Object,System.EventArgs)">
+            <summary>
+            ✅ CAMERA: Take photo with device camera
+            </summary>
+        </member>
+        <member name="M:SportLink.Mobile.Pages.Feed.CreatePostPage.OnChoosePhotoClicked(System.Object,System.EventArgs)">
+            <summary>
+            ✅ PHOTO GALLERY: Pick photo from device
+            </summary>
+        </member>
+        <member name="M:SportLink.Mobile.Pages.Feed.CreatePostPage.OnRemoveImageClicked(System.Object,System.EventArgs)">
+            <summary>
+            Remove selected image from post
+            </summary>
+        </member>
+        <member name="M:SportLink.Mobile.Pages.Feed.CreatePostPage.OnPublishClicked(System.Object,System.EventArgs)">
+            <summary>
+            Publish the post
+            </summary>
+        </member>
+        <member name="M:SportLink.Mobile.Pages.Profile.ProfilePage.OnChangeImageTapped(System.Object,System.EventArgs)">
+            <summary>
+            Handle profile image tap - Show camera/gallery options
+            </summary>
+        </member>
+        <member name="M:SportLink.Mobile.Pages.Profile.ProfilePage.TakePhotoAsync">
+            <summary>
+            ✅ CAMERA: Take photo with device camera
+            </summary>
+        </member>
+        <member name="M:SportLink.Mobile.Pages.Profile.ProfilePage.PickPhotoFromGalleryAsync">
+            <summary>
+            ✅ PHOTO GALLERY: Pick photo from device
+            </summary>
+        </member>
+        <member name="T:SportLink.Mobile.Services.AuthenticationService">
+            <summary>
+            Enhanced Authentication Service with email verification and strong passwords
+            </summary>
+        </member>
+        <member name="M:SportLink.Mobile.Services.AuthenticationService.ValidatePassword(System.String)">
+            <summary>
+            Validate password strength
+            Requirements: 8+ chars, at least 1 uppercase, 1 lowercase, 1 number, 1 symbol
+            </summary>
+        </member>
+        <member name="M:SportLink.Mobile.Services.AuthenticationService.RegisterAsync(System.String,System.String,System.String,System.String)">
+            <summary>
+            Register new user with email verification
+            </summary>
+        </member>
+        <member name="M:SportLink.Mobile.Services.AuthenticationService.VerifyEmailAsync(System.String,System.String,System.String)">
+            <summary>
+            Verify email with code and complete registration
+            </summary>
+        </member>
+        <member name="M:SportLink.Mobile.Services.AuthenticationService.LoginAsync(System.String,System.String)">
+            <summary>
+            Login user with username/email and password
+            </summary>
+        </member>
+        <member name="M:SportLink.Mobile.Services.AuthenticationService.GetCurrentUserAsync">
+            <summary>
+            Get currently logged-in user
+            </summary>
+        </member>
+        <member name="M:SportLink.Mobile.Services.AuthenticationService.IsAuthenticated">
+            <summary>
+            Check if user is authenticated
+            </summary>
+        </member>
+        <member name="M:SportLink.Mobile.Services.AuthenticationService.LogoutAsync">
+            <summary>
+            Logout current user
+            </summary>
+        </member>
+        <member name="M:SportLink.Mobile.Services.AuthenticationService.UpdateProfileAsync(System.String,System.String,System.String)">
+            <summary>
+            Update user profile
+            </summary>
+        </member>
+        <member name="M:SportLink.Mobile.Services.AuthenticationService.UpdateProfilePictureAsync(System.String)">
+            <summary>
+            Update profile picture
+            </summary>
+        </member>
+        <member name="T:SportLink.Mobile.Services.SOSService">
+            <summary>
+            SOS Service - Handles emergency location sharing and SMS notifications
+            </summary>
+        </member>
+        <member name="T:SportLink.Mobile.Resource">
+            <summary>
+            Android Resource Designer class.
+            Exposes the Android Resource designer assembly into the project Namespace.
+            </summary>
+        </member>
+    </members>
+</doc>

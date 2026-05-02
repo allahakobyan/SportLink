@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SportLink.Mobile.Pages.Search.PartnerProfilePage"
+             BackgroundColor="#F7F8FC"
+             Title="Profile">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20,20,20,30" Spacing="18">
+
+            <Frame Padding="0"
+                   CornerRadius="24"
+                   BackgroundColor="White"
+                   HasShadow="True">
+
+                <VerticalStackLayout Spacing="0">
+
+                    <Grid HeightRequest="110"
+                          BackgroundColor="#DCE4F5">
+                        <BoxView Color="#DCE4F5" />
+                    </Grid>
+
+                    <VerticalStackLayout Padding="20,-28,20,20"
+                                         Spacing="10"
+                                         HorizontalOptions="Center">
+
+                        <Frame WidthRequest="90"
+                               HeightRequest="90"
+                               CornerRadius="45"
+                               Padding="0"
+                               BackgroundColor="#F4F3FF"
+                               BorderColor="#7A67F8"
+                               HasShadow="False">
+                            <Label x:Name="InitialLabel"
+                                   Text="S"
+                                   FontSize="32"
+                                   FontAttributes="Bold"
+                                   TextColor="#7A67F8"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center" />
+                        </Frame>
+
+                        <Label x:Name="NameLabel"
+                               Text="Sam"
+                               FontSize="22"
+                               FontAttributes="Bold"
+                               TextColor="#222"
+                               HorizontalOptions="Center" />
+
+                        <Label x:Name="SpecialtyLabel"
+                               Text="Cycling Specialist"
+                               FontSize="15"
+                               TextColor="#777"
+                               HorizontalOptions="Center" />
+
+                        <HorizontalStackLayout Spacing="6"
+                                               HorizontalOptions="Center">
+                            <Label Text="★"
+                                   FontSize="15"
+                                   TextColor="#F5B800" />
+                            <Label x:Name="RatingLabel"
+                                   Text="4.9"
+                                   FontSize="15"
+                                   FontAttributes="Bold"
+                                   TextColor="#444" />
+                        </HorizontalStackLayout>
+
+                        <Button x:Name="ConnectButton"
+                                Text="Connect"
+                                Clicked="OnConnectClicked"
+                                HeightRequest="42"
+                                WidthRequest="140"
+                                CornerRadius="18"
+                                BackgroundColor="#6F63F6"
+                                TextColor="White"
+                                FontSize="14" />
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

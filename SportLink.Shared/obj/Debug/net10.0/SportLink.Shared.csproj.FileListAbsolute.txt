@@ -1,0 +1,11 @@
+C:\Users\allah\OneDrive\Desktop\SportLink\SportLink\SportLink.Shared\bin\Debug\net10.0\SportLink.Shared.deps.json
+C:\Users\allah\OneDrive\Desktop\SportLink\SportLink\SportLink.Shared\bin\Debug\net10.0\SportLink.Shared.dll
+C:\Users\allah\OneDrive\Desktop\SportLink\SportLink\SportLink.Shared\bin\Debug\net10.0\SportLink.Shared.pdb
+C:\Users\allah\OneDrive\Desktop\SportLink\SportLink\SportLink.Shared\obj\Debug\net10.0\SportLink.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\allah\OneDrive\Desktop\SportLink\SportLink\SportLink.Shared\obj\Debug\net10.0\SportLink.Shared.AssemblyInfoInputs.cache
+C:\Users\allah\OneDrive\Desktop\SportLink\SportLink\SportLink.Shared\obj\Debug\net10.0\SportLink.Shared.AssemblyInfo.cs
+C:\Users\allah\OneDrive\Desktop\SportLink\SportLink\SportLink.Shared\obj\Debug\net10.0\SportLink.Shared.csproj.CoreCompileInputs.cache
+C:\Users\allah\OneDrive\Desktop\SportLink\SportLink\SportLink.Shared\obj\Debug\net10.0\SportLink.Shared.dll
+C:\Users\allah\OneDrive\Desktop\SportLink\SportLink\SportLink.Shared\obj\Debug\net10.0\refint\SportLink.Shared.dll
+C:\Users\allah\OneDrive\Desktop\SportLink\SportLink\SportLink.Shared\obj\Debug\net10.0\SportLink.Shared.pdb
+C:\Users\allah\OneDrive\Desktop\SportLink\SportLink\SportLink.Shared\obj\Debug\net10.0\ref\SportLink.Shared.dll
