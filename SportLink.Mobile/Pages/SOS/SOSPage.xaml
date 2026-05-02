@@ -19,7 +19,7 @@
                            FontSize="16"
                            TextColor="#333"/>
 
-                    <!-- ✅ FIXED NAME -->
+                  
                     <Label x:Name="StatusLabel"
                            Text="No active session"
                            FontSize="12"
@@ -39,13 +39,13 @@
                 <Grid WidthRequest="120"
           HeightRequest="120">
 
-                    <!-- DESIGN (unchanged look) -->
+              
                     <Frame BackgroundColor="#FAD4D4"
                CornerRadius="100"
                HasShadow="True"
                InputTransparent="True"/>
 
-                    <!-- TEXT (visible SOS) -->
+        
                     <Label Text="SOS"
                HorizontalOptions="Center"
                VerticalOptions="Center"
