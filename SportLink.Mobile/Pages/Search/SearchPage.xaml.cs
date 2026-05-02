@@ -92,7 +92,7 @@ public partial class SearchPage : ContentPage
         {
             Title = "Tiffany’s Yoga Class",
             Type = "Yoga",
-            Date = new DateTime(2026, 4, 20, 10, 0, 0), // ✅ FIXED
+            Date = new DateTime(2026, 4, 20, 10, 0, 0), 
             Time = "10:00",
             Location = "Yoga Studio, st. Flowers",
             ParticipantsCount = 8,
