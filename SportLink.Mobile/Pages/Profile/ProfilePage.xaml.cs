@@ -134,7 +134,7 @@ public partial class ProfilePage : ContentPage
     }
 
     /// <summary>
-    /// ✅ CAMERA: Take photo with device camera
+    /// Take photo with device camera
     /// </summary>
     private async Task TakePhotoAsync()
     {
@@ -197,7 +197,7 @@ public partial class ProfilePage : ContentPage
     }
 
     /// <summary>
-    /// ✅ PHOTO GALLERY: Pick photo from device
+    ///  Pick photo from device
     /// </summary>
     private async Task PickPhotoFromGalleryAsync()
     {
